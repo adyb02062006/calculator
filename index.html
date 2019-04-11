@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center><div id="hhh" style="width: 400px;height: 100px;border: solid 1px black"></div></center>
+<b>
+ <center><button onclick="setoperator('+')" style="width:100px; height:100px;font-size: 30px">+</button>
+<button onclick="setoperator('-')" style="width: 100px; height: 100px;font-size: 30px">-</button>
+<button onclick="setoperator('*')" style="width:100px; height:100px;font-size: 30px">*</button>
+<button onclick="setoperator('/')" style="width: 100px; height: 100px;font-size: 30px">/</button></center>
+<center><button onclick="number('0')" style="width: 100px; height: 100px;font-size: 30px">0</button>
+<button onclick="number('1')" style="width:100px; height:100px;font-size: 30px">1</button>
+<button onclick="number('2')" style="width: 100px; height: 100px;font-size: 30px">2</button>
+<button onclick="number('3')"style="width: 100px; height: 100px;font-size: 30px">3</button></center>
+<center><button onclick="number('4')" style="width:100px; height:100px;font-size: 30px">4</button>
+<button onclick="number('5')"style="width: 100px; height: 100px;font-size: 30px">5</button>
+<button onclick="number('6')"style="width: 100px; height: 100px;font-size: 30px">6</button>
+<button onclick="number('7')"style="width:100px; height:100px;font-size: 30px">7</button></center>
+<center><button onclick="number('8')"style="width: 100px; height: 100px;font-size: 30px">8</button>
+<button onclick="number('9')" style="width: 100px; height: 100px;font-size: 30px">9</button>
+<button onclick="is()" style="width:100px; height:100px;font-size: 30px">=</button>
+<button onclick="number('.')" style="width: 100px; height: 100px;font-size: 30px">.</button></center>
+<center><button onclick="AC()" style="width: 100px; height: 100px;font-size: 30px">AC</button>
+</center>
+</b>
+</body>
+<script>
+    text1=''
+    text2=''
+    count=false
+    function number(text3) {
+        i=0
+        if(count==false){
+            text1+=text3
+            document.getElementById('hhh').innerHTML=text1
+        }
+        else if (count==true){
+            text2+=text3
+             document.getElementById('hhh').innerHTML=text2
+        }
+    }
+    operator=''
+    function setoperator(operator1) {
+       operator=operator1
+       count=true
+    }
+    function AC() {
+
+        if(count==false){
+            text1=''
+            document.getElementById('hhh').innerHTML=text1
+        }
+        else if (count==true){
+            text2=''
+             document.getElementById('hhh').innerHTML=text2
+        }
+    }
+    function is() {
+        if (count==true&&operator=='+'){
+            text1=parseInt(text1)+parseInt(text2)
+            count=true
+            document.getElementById('hhh').innerHTML=text1
+        }
+        if (count==true&&operator=='*'){
+            text1=parseInt(text1)*parseInt(text2)
+            count=true
+            document.getElementById('hhh').innerHTML=text1
+        }
+
+        if (count==true&&operator=='/'){
+            text1=parseInt(text1)/parseInt(text2)
+            count=true
+            document.getElementById('hhh').innerHTML=text1
+        }
+
+        if (count==true&&operator=='-'){
+            text1=parseInt(text1)-parseInt(text2)
+            count=true
+            document.getElementById('hhh').innerHTML=text1
+        }
+    }
+</script>
+</html>
